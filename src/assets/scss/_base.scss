@@ -38,6 +38,9 @@
   &.is-flex-between {
     justify-content: space-between;
   }
+  &.is-flex-end {
+    justify-content: flex-end;
+  }
 }
 
 $size-7: 10px;

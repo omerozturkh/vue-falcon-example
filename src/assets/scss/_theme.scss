@@ -337,6 +337,9 @@ body {
       &:after {
         border-left-color: #42b983;
       }
+      .matches-item__win {
+        color: #42b983;
+      }
     }
 
     &:nth-child(odd) {
@@ -361,9 +364,9 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #c1493f;
     }
-    &__status {
-    }
+
     &__profile {
       div {
         &:first-child {

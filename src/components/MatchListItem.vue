@@ -1,12 +1,13 @@
 <template>
-  <div class="panel-block is-flex matches-item victory has-text-white">
+  <div class="panel-block is-flex matches-item has-text-white" :class="{'victory' : value.win}">
     <div class="matches-item__win">
-      <p>Victory</p>
+      <p v-if="value.win">VİCTORY</p>
+      <p v-else>DEFEAT</p>
     </div>
     <div class="matches-item__status">
-      <h4 class="has-text-weight-bold has-text-size-14">Ranked Solo</h4>
-      <small class="is-block is-size-7">16 Hours ago</small>
-      <span class="is-size-7">31:05</span>
+      <h4 class="has-text-weight-bold has-text-size-14">{{ value.match.gameMode}}</h4>
+      <small class="is-block is-size-7">{{ time(value.match.gameCreation) }}</small>
+      <span class="is-size-7">{{  Math.floor(value.match.gameDuration / 60)}} min</span>
     </div>
     <div class="matches-item__profile is-flex">
       <div data-tooltip="Annie is awesome">
@@ -18,13 +19,15 @@
       </div>
     </div>
     <div class="matches-item__stats">
-      <p class="is-size-5 has-text-weight-bold">14/5/7</p>
-      <p class="has-text-weight-bold">4:20:1 KDA</p>
+      <p class="is-size-5 has-text-weight-bold">
+        {{ value.kills }}/{{ value.deaths }}/{{ value.assists }}
+      </p>
+      <p class="has-text-weight-bold">{{ value.kda }} KDA</p>
     </div>
     <div class="matches-item__info">
       <small class="is-size-7">Level 17</small>
-      <p class="has-text-weight-bold">160 CS</p>
-      <small class="is-size-7">50% KP</small>
+      <p class="has-text-weight-bold">{{ value.cs }} CS</p>
+      <small class="is-size-7">{{ value.killParticipation }} KP</small>
     </div>
     <div class="matches-item__items is-flex">
       <img src="@/assets/img/items/item1.png">
@@ -38,47 +41,15 @@
     </div>
     <div class="matches-item__team is-flex">
       <div class="">
-        <div class="is-flex">
-          <span>loremipsum</span>
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-        </div>
-        <div class="is-flex">
-          <span>loremipsum</span>
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-        </div>
-        <div class="is-flex">
-          <span>loremipsum</span>
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-        </div>
-        <div class="is-flex">
-          <span>loremipsum</span>
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-        </div>
-        <div class="is-flex">
-          <span>loremipsum</span>
+        <div class="is-flex is-flex-end" v-for="team in value.match.teamSummary" v-if="team.teamId === 100">
+          <span>{{ team.summonerName }}</span>
           <img src="@/assets/img/heroes/annie.jpg" alt="">
         </div>
       </div>
       <div class="">
-        <div class="is-flex">
+        <div class="is-flex" v-for="team in value.match.teamSummary" v-if="team.teamId === 200">
           <img src="@/assets/img/heroes/annie.jpg" alt="">
-          <span>loremipsum</span>
-        </div>
-        <div class="is-flex">
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-          <span>loremipsum</span>
-        </div>
-        <div class="is-flex">
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-          <span>loremipsum</span>
-        </div>
-        <div class="is-flex">
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-          <span>loremipsum</span>
-        </div>
-        <div class="is-flex">
-          <img src="@/assets/img/heroes/annie.jpg" alt="">
-          <span>loremipsum</span>
+          <span>{{ team.summonerName }}</span>
         </div>
       </div>
     </div>
@@ -90,8 +61,16 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   name: 'MatchListItem',
+  props: ['value'],
+  methods: {
+    time (val) {
+     return moment(val).fromNow(true);
+    },
+  },
 };
 </script>
 

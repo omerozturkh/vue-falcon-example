@@ -252,7 +252,7 @@
       <MatchDetail/>
     </div>
     <div class="column is-half">
-      <Matches/>
+      <Matches :matches="matches[0]"/>
     </div>
   </div>
 </template>
@@ -274,6 +274,7 @@ export default {
     return {
       tab: 1,
       circlePerc: 63,
+      matches: [],
     };
   },
 
@@ -281,16 +282,17 @@ export default {
     const b = ((100 - this.circlePerc) / 100) * 100;
     this.$refs.circle1.style.strokeDashoffset = b;
 
-    /*
+
     axios.get('https://5df27b629b71960014bf6482.mockapi.io/api/v1/matches')
       .then((res) => {
         console.log(res.data);
+        this.matches = res.data;
       })
       .catch((error) => {
         console.log(error);
         this.errored = true;
       });
-      */
+
 
   },
 };
