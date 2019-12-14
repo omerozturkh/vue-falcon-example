@@ -1,10 +1,12 @@
+/* eslint-disable import/order */
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import '../node_modules/bulma/css/bulma.css';
+import '../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css';
 import './assets/scss/main.scss';
-
 // messages
 import messages from './lang';
 

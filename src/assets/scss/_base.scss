@@ -1,5 +1,5 @@
 // Base Elements & Variables
-
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700&display=swap&subset=latin-ext');
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.3s;
@@ -14,19 +14,165 @@
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
+
   a {
     font-weight: bold;
     color: #2c3e50;
+
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
+
+
+.is-flex {
+  &.is-flex-between {
+    justify-content: space-between;
+  }
+}
+
+$size-7: 10px;
+$size-6: 20px;
+$size-5: 30px;
+$size-4: 40px;
+$size-3: 50px;
+$size-2: 60px;
+$size-1: 70px;
+
+
+$sizes: (
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+);
+$positions: (
+        "top",
+        "left",
+        "bottom",
+        "right"
+);
+$bulmaSizes: (
+        $size-1,
+        $size-2,
+        $size-3,
+        $size-4,
+        $size-5,
+        $size-6,
+        $size-7
+);
+$i: 1;
+@each $size in $sizes {
+  $sizee: nth($bulmaSizes, $i);
+  $i: $i+1;
+  .has-margin-#{$size} {
+    margin: $sizee !important;
+  }
+  .has-negative-margin-#{$size} {
+    margin: -$sizee !important;
+  }
+  .has-padding-#{$size} {
+    padding: $sizee !important;
+  }
+  @each $position in $positions {
+    .has-margin-#{$position}-#{$size} {
+      margin-#{$position}: $sizee !important;
+    }
+    .has-padding-#{$position}-#{$size} {
+      padding-#{$position}: $sizee !important;
+    }
+    .has-negative-margin-#{$position}-#{$size} {
+      margin-#{$position}: -$sizee !important;
+    }
+  }
+}
+
+@mixin txtShadow() {
+  text-shadow: 1px 1px 0 #2d3960;
+}
+
+.is-small {
+  font-size: 14px;
+  // backdrop-filter: blur(30px);
+}
+
+.bar {
+  background-image: linear-gradient(to right, #9b80fa, #971fad);
+  display: block;
+  border-radius: 12px;
+  position: relative;
+  span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: -8px;
+    width: 30px;
+    height: 30px;
+    background-color: #971fad;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+  }
+}
+
+
+.circle {
+  position: relative;
+
+  &:after {
+    content: attr(data-perc);
+    color: #fff;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @extend .has-text-size-24;
+  }
+  svg {
+    height: 100px;
+    transform: rotate(-90deg);
+    width: 100px;
+    .progress-bar__background {
+      fill: none;
+      stroke: #e2eff0;
+      stroke-width: 2;
+    }
+    .progress-bar__progress {
+      fill: none;
+      stroke: #efb126;
+      stroke-dasharray: 100 100;
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      stroke-width: 2;
+      transition: stroke-dashoffset 1s ease-in-out;
+    }
+  }
+
+}
+
+small {
+  color: #d2c8c1;
+}
+
+.has-text-size-24 {
+  font-size: 24px;
+}
+.has-text-size-14 {
+ font-size: 14px;
+}
+
+

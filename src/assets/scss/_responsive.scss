@@ -7,5 +7,30 @@
 
 // All Mobile
 @media screen and (max-width: 767px) {
-
+  html {
+    overflow: inherit;
+  }
+  .navbar-menu {
+    background-image: linear-gradient(to bottom, #9b80fa, #7166d5 100%);
+    box-shadow: none;
+  }
+  .navbar-burger span {
+    color: #fff;
+  }
+  .is-sidebar-menu {
+    padding: 0;
+  }
+  .home > .column {
+    padding: 0;
+  }
+  .matches {
+    margin-top: 50px;
+  }
+  .user-statics__content {
+    padding: 20px 0 !important;
+  }
+  .columns.is-fullheight {
+    height: inherit;
+    min-height: inherit;
+  }
 }
