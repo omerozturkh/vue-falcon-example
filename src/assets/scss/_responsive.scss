@@ -11,7 +11,7 @@
     overflow: inherit;
   }
   .navbar-menu {
-    background-image: linear-gradient(to bottom, #9b80fa, #7166d5 100%);
+    background-image: linear-gradient(to bottom, $purple, #7166d5 100%);
     box-shadow: none;
   }
   .navbar-burger span {
@@ -32,5 +32,9 @@
   .columns.is-fullheight {
     height: inherit;
     min-height: inherit;
+  }
+
+  .matches-item>div {
+    flex-basis: auto;
   }
 }

@@ -1,4 +1,4 @@
-// Base Elements & Variables
+// Base Elements
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700&display=swap&subset=latin-ext');
 .fade-enter-active,
 .fade-leave-active {
@@ -17,7 +17,7 @@
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: $baseFontColor;
 }
 
 #nav {
@@ -25,10 +25,10 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: $baseFontColor;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $green;
     }
   }
 }
@@ -104,6 +104,10 @@ $i: 1;
 
 @mixin txtShadow() {
   text-shadow: 1px 1px 0 #2d3960;
+}
+
+@mixin trans($ms, $type) {
+  transition: all $ms $type;
 }
 
 .is-small {

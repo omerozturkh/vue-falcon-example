@@ -6,8 +6,8 @@
           <div class="user-detail__image">
             <img src="@/assets/img/ahri.jpg">
             <div class="is-flex">
-              <a href=""><img src="@/assets/svg/refresh.svg"></a>
-              <a href=""><img src="@/assets/svg/star.svg"></a>
+              <a href=""><i class="fal fal-refresh" /></a>
+              <a href=""><i class="fal fal-star" /></a>
             </div>
             <p>Updated 1 hours ago</p>
           </div>
@@ -252,14 +252,13 @@
       <MatchDetail/>
     </div>
     <div class="column is-half">
-      <Matches :matches="matches[0]"/>
+      <Matches />
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import axios from 'axios';
 import MatchDetail from '@/components/MatchDetail.vue';
 import Matches from '@/components/Matches.vue';
 
@@ -281,19 +280,6 @@ export default {
   mounted() {
     const b = ((100 - this.circlePerc) / 100) * 100;
     this.$refs.circle1.style.strokeDashoffset = b;
-
-
-    axios.get('https://5df27b629b71960014bf6482.mockapi.io/api/v1/matches')
-      .then((res) => {
-        console.log(res.data);
-        this.matches = res.data;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      });
-
-
   },
 };
 </script>

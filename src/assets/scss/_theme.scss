@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background: #232D4C;
+  background: $mainColor;
   overflow-y: auto;
 }
 
@@ -33,19 +33,19 @@ body {
           position: relative;
           display: inline-block;
           padding: 20px 40px;
-          transition: all 150ms ease-in-out;
+          @include trans(150ms,ease-in-out);
 
-          img {
-            transition: all 150ms ease-in-out;
+          i {
+            @include trans(150ms,ease-in);
           }
 
           &:hover,
           &:focus {
             box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.2);
-            background-color: #9b80fa;
-            border-left: 6px solid #2d3960;
+            background-color: $purple;
+            border-left: 6px solid $lightBlue;
 
-            img {
+            i {
               filter: invert(1);
             }
           }
@@ -53,7 +53,7 @@ body {
 
         &.logout {
           a {
-            background: #c1493f;
+            background: $red;
           }
         }
       }
@@ -101,7 +101,7 @@ body {
     }
 
     div {
-      background-color: #2d3960;
+      background-color: $lightBlue;
       height: 40px;
       margin-top: -3px;
       padding: 10px;
@@ -113,9 +113,9 @@ body {
     }
 
     p {
-      text-shadow: 1px 1px 0 #2d3960;
+      text-shadow: 1px 1px 0 $lightBlue;
       font-size: 12px;
-      color: #97918a;
+      color: $gray;
       margin-top: 17px;
     }
   }
@@ -175,8 +175,8 @@ body {
             top: 25px;
             width: 4px;
             height: 4px;
-            box-shadow: 1px 1px 0 0 #2d3960;
-            background-color: #97918a;
+            box-shadow: 1px 1px 0 0 $lightBlue;
+            background-color: $gray;
           }
         }
 
@@ -195,7 +195,7 @@ body {
 }
 
 .user-hero-detail {
-  background: #2d3960;
+  background: $lightBlue;
 
   .column {
     padding-top: 0;
@@ -204,7 +204,7 @@ body {
 
   &__heroes {
     padding: 20px;
-    background-color: #273255;
+    background-color: $darkBlue;
 
     &:nth-child(even) {
       background: transparent;
@@ -232,7 +232,7 @@ body {
 
       small {
         font-size: 12px;
-        color: #d2c8c1
+        color: $lightGray;
       }
     }
   }
@@ -252,7 +252,7 @@ body {
 }
 
 .user-statics {
-  background-color: #2d3960;
+  background-color: $lightBlue;
 
   .column {
     padding-top: 0;
@@ -275,13 +275,13 @@ body {
       font-size: 12px;
       font-weight: bold;
       color: #fff;
-      background-color: #273255;
+      background-color: $darkBlue;
       transition: all 150ms ease;
-      border-bottom: solid 2px #2d3960;
+      border-bottom: solid 2px $lightBlue;
 
       &.active,
       &:hover {
-        background: #2d3960;
+        background: $lightBlue;
       }
     }
   }
@@ -294,15 +294,25 @@ body {
 
 
 .matches {
+  overflow-y: auto;
+  height: 100vh;
   .panel-heading {
-    background-color: #192139;
+    background-color: $blue;
+    font-size: 14px;
+    color: $lightPurple;
+    padding: 21px 30px;
   }
 
+  .dropdown {
+    input {
+      margin-right: 5px;
+    }
+  }
   &-item {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    background-color: #2d3960;
+    background-color: $lightBlue;
     padding-bottom: 0;
     padding-top: 15px;
     border: none !important;
@@ -317,7 +327,7 @@ body {
       height: 100%;
       left: 0;
       top: 0;
-      background: #c1493f;
+      background: $red;
     }
     &:after {
       content: '';
@@ -326,24 +336,24 @@ body {
       top: 50%;
       transform: translateY(-50%);
       border-top: 5px solid transparent;
-      border-left: 10px solid #c1493f;
+      border-left: 10px solid $red;
       border-bottom: 5px solid transparent;
     }
 
     &.victory {
       &:before {
-        background: #42b983;
+        background: $green;
       }
       &:after {
-        border-left-color: #42b983;
+        border-left-color: $green;
       }
       .matches-item__win {
-        color: #42b983;
+        color: $green;
       }
     }
 
     &:nth-child(odd) {
-      background-color: #273255;
+      background-color: $darkBlue;
     }
 
     > div {
@@ -364,9 +374,12 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #c1493f;
+      color: $red;
     }
 
+    &__status {
+      flex-basis: 78px;
+    }
     &__profile {
       div {
         &:first-child {
@@ -390,6 +403,14 @@ body {
       }
     }
 
+    &__stats{
+      flex-basis: 75px;
+    }
+
+    &__info {
+      flex-basis: 50px;
+    }
+
     &__items {
       flex-wrap: wrap;
       flex-basis: 78px;
@@ -402,6 +423,7 @@ body {
     }
 
     &__team {
+      flex-basis: 160px;
       > div {
         margin-bottom: 5px;
         align-items: center;
@@ -423,5 +445,5 @@ body {
 
 .footer {
   padding: 0 20px;
-  background: #192139;
+  background: $blue;
 }

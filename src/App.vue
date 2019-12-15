@@ -12,7 +12,12 @@
         <a class="navbar-item" href="https://bulma.io">
           <img src="https://senpai.gg/img/e308bc3.svg" width="112" height="28">
         </a>
-        <a role="button" class="navbar-burger burger" @click.prevent="mobileNavbar = !mobileNavbar" :class="{'is-active' : mobileNavbar }" aria-label="menu" aria-expanded="false"
+        <a role="button"
+           class="navbar-burger burger"
+           @click.prevent="mobileNavbar = !mobileNavbar"
+           :class="{'is-active' : mobileNavbar }"
+           aria-label="menu"
+           aria-expanded="false"
            data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -29,29 +34,29 @@
           <div  id="navbarBasicExample" class="navbar-menu" :class="{'is-active' : mobileNavbar }">
             <ul class="has-text-left">
               <li>
-                <a><img src="@/assets/svg/dashboard.svg"></a>
+                <a><i class="fal fal-dashboard" /></a>
               </li>
               <li>
-                <a><img src="@/assets/svg/charts.svg"></a>
+                <a><i class="fal fal-charts" /></a>
               </li>
               <li>
-                <a><img src="@/assets/svg/details.svg"></a>
+                <a><i class="fal fal-details" /></a>
               </li>
               <li>
-                <a><img src="@/assets/svg/user.svg"></a>
+                <a><i class="fal fal-user" /></a>
               </li>
               <li>
-                <a><img src="@/assets/svg/videos.svg"></a>
+                <a><i class="fal fal-videos" /></a>
               </li>
 
               <li class="has-margin-top-4">
-                <a><img src="@/assets/svg/search.svg"></a>
+                <a><i class="fal fal-search" /></a>
               </li>
               <li>
-                <a><img src="@/assets/svg/settings.svg"></a>
+                <a><i class="fal fal-settings" /></a>
               </li>
               <li class="logout">
-                <a><img src="@/assets/svg/logout.svg"></a>
+                <a><i class="fal fal-logout" /></a>
               </li>
             </ul>
           </div>

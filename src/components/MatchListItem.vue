@@ -6,8 +6,8 @@
     </div>
     <div class="matches-item__status">
       <h4 class="has-text-weight-bold has-text-size-14">{{ value.match.gameMode}}</h4>
-      <small class="is-block is-size-7">{{ time(value.match.gameCreation) }}</small>
-      <span class="is-size-7">{{  Math.floor(value.match.gameDuration / 60)}} min</span>
+      <small class="is-block is-size-7">{{ value.match.gameCreation | timeAgo  }} ago</small>
+      <span class="is-size-7">{{ value.match.gameDuration | secToMin }} min</span>
     </div>
     <div class="matches-item__profile is-flex">
       <div data-tooltip="Annie is awesome">
@@ -20,14 +20,14 @@
     </div>
     <div class="matches-item__stats">
       <p class="is-size-5 has-text-weight-bold">
-        {{ value.kills }}/{{ value.deaths }}/{{ value.assists }}
+        {{ `${value.kills}/${value.deaths}/${value.assists}` }}
       </p>
       <p class="has-text-weight-bold">{{ value.kda }} KDA</p>
     </div>
     <div class="matches-item__info">
       <small class="is-size-7">Level 17</small>
       <p class="has-text-weight-bold">{{ value.cs }} CS</p>
-      <small class="is-size-7">{{ value.killParticipation }} KP</small>
+      <small class="is-size-7">{{ value.killParticipation }}% KP</small>
     </div>
     <div class="matches-item__items is-flex">
       <img src="@/assets/img/items/item1.png">
@@ -66,9 +66,13 @@ import moment from 'moment';
 export default {
   name: 'MatchListItem',
   props: ['value'],
-  methods: {
-    time (val) {
-     return moment(val).fromNow(true);
+
+  filters: {
+    timeAgo(val) {
+      return moment(val).fromNow(true);
+    },
+    secToMin(val) {
+      return Math.floor(val / 60);
     },
   },
 };

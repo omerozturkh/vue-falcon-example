@@ -1,0 +1,81 @@
+/// Falcon Aı Icon Set
+
+.fal{
+  object-fit: contain;
+  display: inline-block;
+  &.fal-bar {
+    background: url("../svg/icons/bar.svg");
+    width: 14px;
+    height: 16px;
+  }
+  &.fal-charts {
+    background: url("../svg/icons/charts.svg");
+    width: 21px;
+    height: 24px;
+  }
+  &.fal-compass {
+    background: url("../svg/icons/compass.svg");
+    width: 20px;
+    height: 20px;
+  }
+  &.fal-dashboard {
+    background: url("../svg/icons/dashboard.svg");
+    width: 24px;
+    height: 24px;
+  }
+  &.fal-details {
+    background: url("../svg/icons/details.svg");
+    width: 24px;
+    height: 25px;
+  }
+  &.fal-eye {
+    background: url("../svg/icons/eye.svg");
+    width: 20px;
+    height: 12px;
+  }
+  &.fal-logout {
+    background: url("../svg/icons/logout.svg");
+    width: 14px;
+    height: 18px;
+  }
+  &.fal-refresh {
+    background: url("../svg/icons/refresh.svg");
+    width: 16px;
+    height: 16px;
+  }
+  &.fal-search {
+    background: url("../svg/icons/search.svg");
+    width: 18px;
+    height: 18px;
+  }
+  &.fal-settings {
+    background: url("../svg/icons/settings.svg");
+    width: 20px;
+    height: 20px;
+  }
+  &.fal-shuffle {
+    background: url("../svg/icons/shuffle.svg");
+    width: 20px;
+    height: 18px;
+  }
+  &.fal-star {
+    background: url("../svg/icons/star.svg");
+    width: 16px;
+    height: 16px;
+  }
+  &.fal-user {
+    background: url("../svg/icons/user.svg");
+    width: 24px;
+    height: 24px;
+  }
+  &.fal-videos {
+    background: url("../svg/icons/videos.svg");
+    width: 24px;
+    height: 24px;
+  }
+  &.fal-filter {
+    background: url("../svg/icons/filter.svg");
+    width: 20px;
+    height: 20px;
+  }
+}
