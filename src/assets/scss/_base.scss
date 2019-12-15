@@ -120,6 +120,9 @@ $i: 1;
   display: block;
   border-radius: 12px;
   position: relative;
+  animation: barAnim 1s ease-in both;
+  transform-origin: left;
+
   span {
     position: absolute;
     display: flex;
@@ -139,6 +142,12 @@ $i: 1;
 
 .circle {
   position: relative;
+
+  &.green {
+    .progress-bar__progress {
+      stroke: $green;
+    }
+  }
 
   &:after {
     content: attr(data-perc);
@@ -160,17 +169,23 @@ $i: 1;
     }
     .progress-bar__progress {
       fill: none;
-      stroke: #efb126;
+      stroke: $yellow;
       stroke-dasharray: 100 100;
       stroke-dashoffset: 0;
       stroke-linecap: round;
       stroke-width: 2;
       transition: stroke-dashoffset 1s ease-in-out;
     }
+
   }
 
 }
 
+.locale-changer {
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+}
 small {
   color: #d2c8c1;
 }
@@ -183,3 +198,17 @@ small {
 }
 
 
+@keyframes barAnim {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes resizeAnim {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}

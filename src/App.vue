@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <!--
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <LocaleChanger />
-    -->
     <div class="is-block-mobile is-hidden-desktop">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
@@ -83,39 +77,39 @@
 </template>
 
 <script>
-  import LocaleChanger from './components/LocaleChanger.vue';
-  import Footer from './components/Footer.vue';
+import LocaleChanger from './components/LocaleChanger.vue';
+import Footer from './components/Footer.vue';
 
-  export default {
-    name: 'app',
-    components: {
-      LocaleChanger,
-      Footer
+export default {
+  name: 'app',
+  components: {
+    LocaleChanger,
+    Footer,
+  },
+  data() {
+    return {
+      prevHeight: 0,
+      mobileNavbar: false,
+    };
+  },
+  methods: {
+    beforeLeave(element) {
+      this.prevHeight = getComputedStyle(element).height;
     },
-    data() {
-      return {
-        prevHeight: 0,
-        mobileNavbar: false,
-      };
-    },
-    methods: {
-      beforeLeave(element) {
-        this.prevHeight = getComputedStyle(element).height;
-      },
-      enter(element) {
-        const elementData = element;
-        const { height } = getComputedStyle(element);
+    enter(element) {
+      const elementData = element;
+      const { height } = getComputedStyle(element);
 
-        elementData.style.height = this.prevHeight;
+      elementData.style.height = this.prevHeight;
 
-        setTimeout(() => {
-          elementData.style.height = height;
-        });
-      },
-      afterEnter(element) {
-        const elementData = element;
-        elementData.style.height = 'auto';
-      },
+      setTimeout(() => {
+        elementData.style.height = height;
+      });
     },
-  };
+    afterEnter(element) {
+      const elementData = element;
+      elementData.style.height = 'auto';
+    },
+  },
+};
 </script>

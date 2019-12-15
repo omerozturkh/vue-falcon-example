@@ -1,15 +1,15 @@
 <template>
   <div class="home columns">
     <div class="column is-half">
-      <div class="user-detail">
+    <div class="user-detail" :class="{'resize' : resize }">
         <div class="is-flex has-padding-left-6">
           <div class="user-detail__image">
-            <img src="@/assets/img/ahri.jpg">
+            <img src="@/assets/img/heroes/ahri.jpg">
             <div class="is-flex">
               <a href=""><i class="fal fal-refresh" /></a>
               <a href=""><i class="fal fal-star" /></a>
             </div>
-            <p>Updated 1 hours ago</p>
+            <p>{{ $t('message.profileUpdate') }}</p>
           </div>
           <div class="user-detail__info has-padding-top-6 has-padding-left-6">
             <div class="user-detail__info--name">
@@ -31,11 +31,11 @@
               </div>
               <div class="body is-flex has-text-white">
                 <div>
-                  <span class="is-small">Win Rate</span>
+                  <span class="is-small">{{ $t('message.winRate') }}</span>
                   <p class="has-text-success">72.33%</p>
                 </div>
                 <div>
-                  <span class="is-small">Win/Loss</span>
+                  <span class="is-small">{{ $t('message.winLose') }}</span>
                   <p class="has-text-danger">-1</p>
                 </div>
                 <div>
@@ -43,20 +43,21 @@
                   <p>1.28</p>
                 </div>
                 <div>
-                  <span class="is-small">CS Per Min</span>
+                  <span class="is-small">CS {{ $t('message.perMin') }}</span>
                   <p>3.84</p>
                 </div>
                 <div class="is-flex">
                   <img src="" alt="">
-                  <span class="is-small">Highest <br> Multikill</span>
+                  <span class="is-small">{{ $t('message.highest') }} <br> Multikill</span>
                 </div>
               </div>
               <div class="foot has-margin-top-6 has-margin-bottom-4">
-                <p class="has-text-weight-bold">18,787 Matches</p>
+                <p class="has-text-weight-bold">18,787 {{ $t('message.matches') }}</p>
               </div>
             </div>
           </div>
         </div>
+        <a href="" class="fal fal-resize" @click.prevent="resize = !resize"></a>
       </div>
 
       <div class="user-hero-detail has-margin-top-6">
@@ -170,7 +171,7 @@
                     :class="{ 'active': tab === 1 }"
                     @click.prevent="tab = 1"
                   >
-                    Normal
+                    {{ $t('message.normal') }}
                   </a>
                 </li>
                 <li>
@@ -179,7 +180,7 @@
                     :class="{ 'active': tab === 2 }"
                     @click.prevent="tab = 2"
                   >
-                    Single / Duo
+                    {{ $t('message.single') }}
                   </a>
                 </li>
                 <li>
@@ -188,7 +189,7 @@
                     :class="{ 'active': tab === 3 }"
                     @click.prevent="tab = 3"
                   >
-                    Flex
+                    {{ $t('message.flex') }}
                   </a>
                 </li>
                 <li>
@@ -197,7 +198,7 @@
                     :class="{ 'active': tab === 4 }"
                     @click.prevent="tab = 4"
                   >
-                    All
+                    {{ $t('message.all') }}
                   </a>
                 </li>
               </ul>
@@ -206,7 +207,7 @@
           <div class="column">
             <div class="user-statics__content has-padding-top-4 has-padding-left-7 has-padding-right-7">
               <div v-if="tab === 1" class="is-flex">
-                <div class="circle" data-perc="40">
+                <div class="circle green" data-perc="40">
                   <svg xmlns="http://www.w3.org/2000/svg"
                        viewBox="-1 -1 34 34">
                     <circle cx="16" cy="16" r="15.9155"
@@ -214,7 +215,7 @@
                     <circle cx="16" cy="16" r="15.9155"
                             class="progress-bar__progress js-progress-bar"/>
                   </svg>
-                  <p class="has-text-white has-padding-top-7">Played Games</p>
+                  <p class="has-text-white has-padding-top-7">{{ $t('message.playedGames') }}</p>
                 </div><!--/.circle-->
                 <div
                   class="has-text-weight-bold has-padding-top-6 has-padding-left-7 has-padding-right-7 has-text-white ">
@@ -233,23 +234,26 @@
                        viewBox="-1 -1 34 34">
                     <circle cx="16" cy="16" r="15.9155"
                             class="progress-bar__background"/>
-                    <circle ref="circle1" cx="16" cy="16" r="15.9155"
+                    <circle ref="circle1" :style="{'strokeDashoffset': circlePercFunc(62)}" cx="16" cy="16" r="15.9155"
                             class="progress-bar__progress js-progress-bar"/>
                   </svg>
-                  <p class="has-text-white has-padding-top-7">Success Rate</p>
+                  <p class="has-text-white has-padding-top-7">{{ $t('message.successRate') }}</p>
                 </div><!--/.circle-->
               </div>
-              <div v-if="tab === 2">
-                Single
+              <div v-if="tab === 2" class="has-text-white">
+                {{ $t('message.single') }}
               </div>
-              <div v-if="tab === 3"></div>
-              <div v-if="tab === 4"></div>
+              <div v-if="tab === 3" class="has-text-white">
+                {{ $t('message.flex') }}
+              </div>
+              <div v-if="tab === 4" class="has-text-white">
+                {{ $t('message.all') }}
+              </div>
             </div>
           </div>
         </div>
 
       </div><!--/.user-hero-detail__statics-->
-      <MatchDetail/>
     </div>
     <div class="column is-half">
       <Matches />
@@ -259,27 +263,26 @@
 
 <script>
 // @ is an alias to /src
-import MatchDetail from '@/components/MatchDetail.vue';
 import Matches from '@/components/Matches.vue';
 
 export default {
   name: 'home',
   components: {
-    MatchDetail,
     Matches,
   },
 
   data() {
     return {
       tab: 1,
-      circlePerc: 63,
       matches: [],
+      resize: false,
     };
   },
-
-  mounted() {
-    const b = ((100 - this.circlePerc) / 100) * 100;
-    this.$refs.circle1.style.strokeDashoffset = b;
+  methods: {
+    circlePercFunc(val) {
+      const b = ((100 - val) / 100) * 100;
+      return b;
+    },
   },
 };
 </script>

@@ -37,4 +37,9 @@
   .matches-item>div {
     flex-basis: auto;
   }
+  .locale-changer {
+    bottom: inherit;
+    top: 0;
+    left: 50%;
+  }
 }

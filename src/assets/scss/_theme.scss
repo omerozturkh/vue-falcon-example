@@ -91,7 +91,21 @@ body {
   background-size: cover;
   width: 100%;
   object-fit: contain;
+  position: relative;
+  transition: all 300ms ease;
+  &.resize {
+    .user-detail__info--stats  {
+      max-height: 0;
+      opacity: 0;
+      // display: none !important;
+    }
+  }
 
+  .fal-resize {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
   &__image {
     width: 140px;
     flex: 0 0 auto;
@@ -145,6 +159,8 @@ body {
     }
 
     &--stats {
+      max-height: 500px;
+      transition: all 500ms ease;
       .head {
         @include txtShadow;
         color: #fff;
@@ -162,7 +178,6 @@ body {
 
       .body {
         flex-wrap: wrap;
-
         > div {
           padding: 5px 10px 5px 0;
           width: 100px;
@@ -244,9 +259,50 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-
+    img {
+      animation: fadeIn 300ms ease-in both;
+      opacity: 0;
+    }
     ul {
       width: 100%;
+      li {
+        &:nth-child(1)  {
+          .bar,
+          img {
+            animation-delay: .5s
+          }
+        }
+        &:nth-child(2)  {
+          .bar,
+          img {
+            animation-delay: .8s
+          }
+        }
+        &:nth-child(3)  {
+          .bar,
+          img {
+            animation-delay: 1.1s
+          }
+        }
+        &:nth-child(4)  {
+          .bar,
+          img {
+            animation-delay: 1.4s
+          }
+        }
+        &:nth-child(5)  {
+          .bar,
+          img {
+            animation-delay: 1.7s
+          }
+        }
+        &:nth-child(6)  {
+          .bar,
+          img {
+            animation-delay: 2s
+          }
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <nav class="panel matches">
     <div class="panel-heading has-text-left is-flex is-flex-between">
-      <p>Match History</p>
+      <p>{{ $t('message.matchHistory') }}</p>
       <div class="dropdown is-right" :class="{'is-active': dropOpen}">
         <div class="dropdown-trigger">
           <a
@@ -15,18 +15,18 @@
         <div class="dropdown-menu" id="dropdown-menu6" role="menu">
           <div class="dropdown-content">
             <div class="dropdown-item">
-              <p>Filter by:</p>
+              <p>{{ $t('message.filterBy') }}:</p>
               <div>
                 <input id="checkAll" type="radio" value="all" v-model="filterBy">
-                <label for="checkAll">All</label>
+                <label for="checkAll">{{ $t('message.all') }}</label>
               </div>
               <div>
                 <input id="checkWin" type="radio" value="win" v-model="filterBy">
-                <label for="checkWin">Win</label>
+                <label for="checkWin">{{ $t('message.win') }}</label>
               </div>
               <div>
                 <input id="checkDefeat" type="radio" value="defeat" v-model="filterBy">
-                <label for="checkDefeat">Defeat</label>
+                <label for="checkDefeat">{{ $t('message.defeat') }}</label>
               </div>
               <div>
                 <input id="checkKda" type="radio" value="kda" v-model="filterBy">
@@ -39,7 +39,40 @@
     </div>
     <div v-if="data">
       <div v-for="(value, index) in data" :key="index">
-        <MatchListItem :value="value" v-if="value.show"/>
+        <MatchListItem
+          :value="value"
+          v-if="value.show"
+          @toggleModal="toggleModal"
+        />
+      </div>
+    </div>
+
+    <div class="modal" :class="{'is-active': modalOpen }">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">{{ $t('message.analysis') }}</p>
+          <button
+            class="delete"
+            aria-label="close"
+            @click.prevent="modalOpen = !modalOpen"
+          >
+          </button>
+        </header>
+        <section class="modal-card-body" v-if="analysis && analysis[0]">
+         <p
+           :key="index"
+           v-for="(val, index) in analysis[0].user_performance"
+           class="has-padding-bottom-7">
+           {{ val.title }}
+         </p>
+        </section>
+        <footer class="modal-card-foot">
+          <button
+            class="button"
+            @click.prevent="modalOpen = !modalOpen"
+          >{{ $t('message.cancel') }}</button>
+        </footer>
       </div>
     </div>
   </nav>
@@ -47,7 +80,8 @@
 
 <script>
 import axios from 'axios';
-import MatchListItem from './MatchListItem';
+import { mapState } from 'vuex';
+import MatchListItem from './MatchListItem/';
 
 export default {
   name: 'Matches',
@@ -57,12 +91,22 @@ export default {
       data: [],
       dropOpen: false,
       filterBy: 'all',
+      modalOpen: false,
     };
   },
   watch: {
     filterBy() {
       this.filterFunction();
     },
+  },
+  computed: {
+    ...mapState({
+      analysis: state => state.all,
+    }),
+  },
+
+  created() {
+    this.$store.dispatch('getAnalysis');
   },
   mounted() {
     axios.get('https://5df27b629b71960014bf6482.mockapi.io/api/v1/matches')
@@ -78,6 +122,9 @@ export default {
       });
   },
   methods: {
+    toggleModal() {
+      this.modalOpen = !this.modalOpen;
+    },
     filterFunction() {
       switch (this.filterBy) {
         case 'all':

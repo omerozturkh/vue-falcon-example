@@ -42,6 +42,10 @@
     background: url("../svg/icons/refresh.svg");
     width: 16px;
     height: 16px;
+    @include trans(300ms, ease);
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
   &.fal-search {
     background: url("../svg/icons/search.svg");
@@ -62,6 +66,10 @@
     background: url("../svg/icons/star.svg");
     width: 16px;
     height: 16px;
+    @include trans(300ms, ease);
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   &.fal-user {
     background: url("../svg/icons/user.svg");
@@ -77,5 +85,10 @@
     background: url("../svg/icons/filter.svg");
     width: 20px;
     height: 20px;
+  }
+  &.fal-resize {
+    background: url("../svg/icons/resize.svg");
+    width: 30px;
+    height: 30px;
   }
 }

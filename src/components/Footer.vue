@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column">
           <div class="title is-flex has-margin-bottom-6">
-            <img  src="@/assets/svg/icons/shuffle.svg" class="has-margin-right-7">
+            <i  class="fal fal-shuffle has-margin-right-7" />
             <h4 class="has-text-white has-text-weight-bold is-size-6">Lorem ipsum dolor</h4>
           </div>
           <div class="desc">
@@ -14,7 +14,7 @@
       </div>
       <div class="column">
         <div class="title is-flex has-margin-bottom-6">
-          <img  src="@/assets/svg/icons/shuffle.svg" class="has-margin-right-7">
+          <i  class="fal fal-shuffle has-margin-right-7" />
           <h4 class="has-text-white has-text-weight-bold is-size-6">Lorem ipsum dolor</h4>
         </div>
         <div class="desc">
@@ -25,7 +25,7 @@
       </div>
       <div class="column">
         <div class="title is-flex has-margin-bottom-6">
-          <img  src="@/assets/svg/icons/shuffle.svg" class="has-margin-right-7">
+          <i  class="fal fal-shuffle has-margin-right-7" />
           <h4 class="has-text-white has-text-weight-bold is-size-6">Lorem ipsum dolor</h4>
         </div>
         <div class="desc">
@@ -36,7 +36,7 @@
       </div>
       <div class="column">
         <div class="title is-flex has-margin-bottom-6">
-          <img  src="@/assets/svg/icons/shuffle.svg" class="has-margin-right-7">
+          <i  class="fal fal-shuffle has-margin-right-7" />
           <h4 class="has-text-white has-text-weight-bold is-size-6">Lorem ipsum dolor</h4>
         </div>
         <div class="desc">
@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
 };
 </script>
 

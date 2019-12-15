@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="resize" transform="translate(-960 -500)">
+    <rect id="back" width="30" height="30" transform="translate(960 500)" fill="#192139"/>
+    <path id="arrows-corners" d="M.8,0H5.6a.8.8,0,1,1,0,1.6H2.731L14.4,13.269V10.4a.8.8,0,1,1,1.6,0v4.8a.8.8,0,0,1-.8.8H10.4a.8.8,0,1,1,0-1.6h2.869L1.6,2.731V5.6A.8.8,0,1,1,0,5.6V.8A.8.8,0,0,1,.8,0Z" transform="translate(967 507)" fill="#54549b"/>
+  </g>
+</svg>
