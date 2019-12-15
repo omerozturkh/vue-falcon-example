@@ -1,14 +1,10 @@
 # vue-boilerplate
+<a href="https://github.com/omerozturkh/vue-boilerplate">Boilerplate Link</a>
 
-vuex,vue-router,i18n,scss,route transistion(fade) animation, optional tailwindcss
+vuex,vue-router,i18n,scss,route transistion(fade) animation, <a href="https://bulma.io//">bulma</a>
 
-Optional usage <a href="https://tailwindcss.com/">Tailwindcss</a>
-## Optional Tailwindcss setup
-```
-git branch feature-tailwind
-git pull origin feature-tailwind
-yarn install
-```
+
+###Falcon Frontend Challange
 ## Project setup
 ```
 yarn install
