@@ -3,6 +3,7 @@
 
 vuex,vue-router,i18n,scss,route transistion(fade) animation, <a href="https://bulma.io//">bulma</a>
 
+<a href="https://vue-falcon-example-87dekgg5w.now.sh/#/">Demo Link</a>
 
 ###Falcon Frontend Challange
 ## Project setup
